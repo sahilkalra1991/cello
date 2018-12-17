@@ -220,6 +220,7 @@ start: ##@Service Start service
 	echo "Start all services with ${COMPOSE_FILE}... docker images must exist local now, otherwise, run 'make setup-master first' !"
 	if [ "$(MODE)" = "dev" ]; then \
 		make build-admin-js; \
+		make build-user-dashboard-js; \
 	fi
 	docker-compose -f ${COMPOSE_FILE} up -d --no-recreate
 	echo "Now you can visit operator-dashboard at localhost:8080, or user-dashboard at localhost:8081"
